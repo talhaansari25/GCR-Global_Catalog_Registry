@@ -12,8 +12,8 @@ You can access the live demo of the project here:
 
 To login as a seller, use the following credentials:
 
-- **Email**: smtelectronics@gmail.com
-- **Password**: Sumeet@123
+- **Email**: talhaansari2026@gmail.com
+- **Password**: Talha@123
 
 ---
 
@@ -95,4 +95,4 @@ The **Global Catalog Registry (GCR)** is a centralized system designed to standa
 
 ## To access API Documentation Open - `apidocs.md` in root folder
 
-Contact - `sumeetgupta3690@gmail.com`
+Contact - `talhaansari2026@gmail.com`
