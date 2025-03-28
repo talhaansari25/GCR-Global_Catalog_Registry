@@ -1,0 +1,147 @@
+[
+    {
+      "category": "Electronics",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "warranty", "type": "string", "required": false, "label": "Warranty (e.g., 1 year)" },
+        { "name": "model", "type": "string", "required": false, "label": "Model" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+        { "name": "features", "type": "string", "required": false, "label": "Features" },
+        { "name": "color", "type": "string", "required": false, "label": "Color" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Electronics+Image" }
+      ]
+    },
+    {
+      "category": "Food",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "weight", "type": "string", "required": true, "label": "Weight (e.g., 500g, 1kg)" },
+        { "name": "ingredients", "type": "string", "required": false, "label": "Ingredients" },
+        { "name": "allergens", "type": "string", "required": false, "label": "Allergens (e.g., peanuts, gluten)" },
+        { "name": "expiryDate", "type": "date", "required": true, "label": "Expiry Date" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "In Stock" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Food+Image" }
+      ]
+    },
+    {
+      "category": "Clothes",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "size", "type": "string", "required": true, "label": "Size (e.g., M, L, XL)" },
+        { "name": "color", "type": "string", "required": false, "label": "Color" },
+        { "name": "material", "type": "string", "required": false, "label": "Material (e.g., cotton, polyester)" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Clothes+Image" }
+      ]
+    },
+    {
+      "category": "Grocery",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "weight", "type": "string", "required": true, "label": "Weight (e.g., 500g, 1kg)" },
+        { "name": "ingredients", "type": "string", "required": false, "label": "Ingredients" },
+        { "name": "expiryDate", "type": "date", "required": false, "label": "Expiry Date" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "In Stock" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Grocery+Image" }
+      ]
+    },
+    {
+      "category": "Books",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Book Title" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "author", "type": "string", "required": true, "label": "Author" },
+        { "name": "publisher", "type": "string", "required": false, "label": "Publisher" },
+        { "name": "ISBN", "type": "string", "required": true, "label": "ISBN" },
+        { "name": "pages", "type": "number", "required": false, "label": "Pages" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Books+Image" }
+      ]
+    },
+    {
+      "category": "Kitchen",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "material", "type": "string", "required": true, "label": "Material" },
+        { "name": "capacity", "type": "string", "required": false, "label": "Capacity (e.g., 1L, 500ml)" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Kitchen+Image" }
+      ]
+    },
+    {
+      "category": "Stationery",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "color", "type": "string", "required": false, "label": "Color" },
+        { "name": "material", "type": "string", "required": false, "label": "Material" },
+        { "name": "size", "type": "string", "required": false, "label": "Size" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Stationery+Image" }
+      ]
+    },
+    {
+      "category": "Health",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "ingredients", "type": "string", "required": false, "label": "Ingredients" },
+        { "name": "expiryDate", "type": "date", "required": false, "label": "Expiry Date" },
+        { "name": "usageInstructions", "type": "string", "required": false, "label": "Usage Instructions" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Health+Image" }
+      ]
+    },
+    {
+      "category": "Toys",
+      "fields": [
+        { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+        { "name": "price", "type": "number", "required": true, "label": "Price" },
+        { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+        { "name": "ageGroup", "type": "string", "required": true, "label": "Age Group" },
+        { "name": "material", "type": "string", "required": false, "label": "Material" },
+        { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+        { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Toys+Image" }
+      ]
+    },
+    {
+        "category": "Sports",
+        "fields": [
+          { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+          { "name": "price", "type": "number", "required": true, "label": "Price" },
+          { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+          { "name": "material", "type": "string", "required": false, "label": "Material" },
+          { "name": "color", "type": "string", "required": false, "label": "Color" },
+          { "name": "size", "type": "string", "required": false, "label": "Size" },
+          { "name": "weight", "type": "string", "required": false, "label": "Weight" },
+          { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+          { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Sports+Image" }
+        ]
+      },
+      {
+        "category": "Beauty",
+        "fields": [
+          { "name": "productName", "type": "string", "required": true, "label": "Product Name" },
+          { "name": "price", "type": "number", "required": true, "label": "Price" },
+          { "name": "brand", "type": "string", "required": false, "label": "Brand" },
+          { "name": "ingredients", "type": "string", "required": false, "label": "Ingredients" },
+          { "name": "skinType", "type": "string", "required": false, "label": "Skin Type" },
+          { "name": "applicationMethod", "type": "string", "required": false, "label": "Application Method" },
+          { "name": "availability", "type": "boolean", "required": true, "label": "Availability" },
+          { "name": "img", "type": "string", "required": false, "label": "Image URL", "default": "https://via.placeholder.com/150?text=Beauty+Image" }
+        ]
+      }
+  ]
+  
