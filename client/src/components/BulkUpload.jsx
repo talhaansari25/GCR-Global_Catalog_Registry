@@ -1,19 +1,16 @@
-
-
 import React, { useState } from 'react';
 import Table from './Table';
 
 export default function BulkUpload() {
     const [uploadStatus, setUploadStatus] = useState('');
 
-    async function handleBulkUpload({sid}) {
-        
+    async function handleBulkUpload({ sid }) {
 
         // Open file selection dialog
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = '.csv,.xlsx'; // Allow only CSV and XLSX files
-        
+
         input.onchange = async (event) => {
             const file = event.target.files[0];
 
@@ -60,7 +57,6 @@ export default function BulkUpload() {
         };
 
         input.click(); // Programmatically open the file dialog
-        
     }
 
     return (
@@ -76,7 +72,22 @@ export default function BulkUpload() {
                 </div>
             </div>
 
-            {uploadStatus && <p style={{position:'absolute', top:'10px', left:'50%', transform:"translateX(50%)", padding:'10px', background:'var(--lmaterial2)', borderRadius:'10px'}} className="upload-status">{uploadStatus}</p>}
+            {uploadStatus && (
+                <p
+                    style={{
+                        position: 'absolute',
+                        top: '10px',
+                        left: '50%',
+                        transform: "translateX(50%)",
+                        padding: '10px',
+                        background: 'var(--lmaterial2)',
+                        borderRadius: '10px'
+                    }}
+                    className="upload-status"
+                >
+                    {uploadStatus}
+                </p>
+            )}
 
             <Table />
         </div>
