@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 import React, { useState, useEffect, useRef } from 'react';
 import Prod from './Prod';
 import Loading from './Loading';
@@ -20,37 +12,35 @@ export default function Products({ searchQuery, searchRes }) {
   const [currentPg, setCurrentPg] = useState(1);
   const paginationRef = useRef(null);
 
-  const [sortedOrder, setSortedOrder] = useState(false)
-  const [recentOrder, setRecentOrder] = useState(false)
-  const [showSortOpts, setShowSortOpts] = useState(false)
-  const [showCatOpts, setShowCatOpts] = useState(false)
-  const [showAvailabilitySlider, setShowAvailabilitySlider] = useState(false)
-  const [showPriceSlider, setShowPriceSlider] = useState(false)
+  const [sortedOrder, setSortedOrder] = useState(false);
+  const [recentOrder, setRecentOrder] = useState(false);
+  const [showSortOpts, setShowSortOpts] = useState(false);
+  const [showCatOpts, setShowCatOpts] = useState(false);
+  const [showAvailabilitySlider, setShowAvailabilitySlider] = useState(false);
+  const [showPriceSlider, setShowPriceSlider] = useState(false);
 
+  const [choosenCategory, setChoosenCategory] = useState("all");
+  const [priceMin, setPriceMin] = useState(0);
+  const [priceMax, setPriceMax] = useState(10000);
+  const [minAvailable, setMinAvailable] = useState(0);
+  const [maxAvailable, setMaxAvailable] = useState(1000);
 
-  const [choosenCategory, setChoosenCategory] = useState("all")
-  const [priceMin, setPriceMin] = useState(0)
-  const [priceMax, setPriceMax] = useState(10000)
-  const [minAvailable, setMinAvailable] = useState(0)
-  const [maxAvailable, setMaxAvailable] = useState(1000)
+  const [priceRange, setPriceRange] = useState([0, 1000]); // Price range [min, max]
+  const [availabilityRange, setAvailabilityRange] = useState([0, 100]); // Availability range [min, max]
 
-    const [priceRange, setPriceRange] = useState([0, 1000]); // Price range [min, max]
-    const [availabilityRange, setAvailabilityRange] = useState([0, 100]); // Availability range [min, max]
-  
-    const handlePriceChange = (newRange) => {
-      setPriceRange(newRange); // Update price range
-    };
-  
-    const handleAvailabilityChange = (newRange) => {
-      setAvailabilityRange(newRange); // Update availability range
-    };
-  
+  const handlePriceChange = (newRange) => {
+    setPriceRange(newRange); // Update price range
+  };
+
+  const handleAvailabilityChange = (newRange) => {
+    setAvailabilityRange(newRange); // Update availability range
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://gcrneuratechserver.vercel.app/buyer/filteredproducts?category=${choosenCategory}&priceMin=${priceMin}&priceMax=${priceMax}&minAvailable=${minAvailable}&maxAvailable=${maxAvailable}&page=${currentPg}&limit=10&recent=${recentOrder?1:0}&sortAtoZ=${sortedOrder?1:0}`
+          `https://gcrneuratechserver.vercel.app/buyer/filteredproducts?category=${choosenCategory}&priceMin=${priceMin}&priceMax=${priceMax}&minAvailable=${minAvailable}&maxAvailable=${maxAvailable}&page=${currentPg}&limit=10&recent=${recentOrder ? 1 : 0}&sortAtoZ=${sortedOrder ? 1 : 0}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -83,7 +73,6 @@ export default function Products({ searchQuery, searchRes }) {
     }
   };
 
-
   const cats = [
     ["Electronics", "fas fa-plug"],
     ["Food", "fas fa-utensils"],
@@ -96,85 +85,80 @@ export default function Products({ searchQuery, searchRes }) {
     ["Toys", "fas fa-car-side"],
     ["Sports", "fas fa-futbol"],
     ["Beauty", "fa-brands fa-gratipay"],
-  ]
+  ];
 
   return (
     <div className="prodScreen">
       <div className="prodContainer">
         <div id="myAnchor" className="tabs">
-          <div className="gp1 " >
+          <div className="gp1">
             <a href="#" onClick={() => {
-              setSortedOrder((prev) => !prev)
-              setRecentOrder(false)
-            }}><i className={`fas fa-arrow-down-a-z ${sortedOrder ? 'activeIt' : ''}`}></i> A to Z</a>
+              setSortedOrder((prev) => !prev);
+              setRecentOrder(false);
+            }}>
+              <i className={`fas fa-arrow-down-a-z ${sortedOrder ? 'activeIt' : ''}`}></i> A to Z
+            </a>
             <a href="#" onClick={() => {
-              setRecentOrder((prev) => !prev)
-              setSortedOrder(false)
-            }}><i className={`fas fa-clock ${recentOrder ? 'activeIt' : ''}`}></i> Recent</a>
+              setRecentOrder((prev) => !prev);
+              setSortedOrder(false);
+            }}>
+              <i className={`fas fa-clock ${recentOrder ? 'activeIt' : ''}`}></i> Recent
+            </a>
 
-            <a href="#" style={{ position: 'relative' }}  >
+            <a href="#" style={{ position: 'relative' }}>
               <span onClick={() => setShowCatOpts(!showCatOpts)}>
-                <i className='fas fa-list'></i>
-                &nbsp; Category
+                <i className='fas fa-list'></i>&nbsp; Category
               </span>
               {showCatOpts &&
                 <div className="dropDown2">
                   <div>
-
                     {cats.slice(0, 6).map((c, idx) => (
                       <li key={idx} onClick={() => {
                         setChoosenCategory((prev) => {
-                          const categories = prev.split(",").filter(Boolean); // Split by commas and remove empty strings
+                          const categories = prev.split(",").filter(Boolean);
                           if (categories.includes(c[0])) {
-                            // Remove the category if it's already in the list
                             return categories.filter(category => category !== c[0]).join(",");
                           } else {
-                            // Add the category if it's not in the list
                             return [...categories, c[0]].join(",");
                           }
                         });
-
-
-                      }
-                      } >  <i className={`${c[1]} ${choosenCategory.includes(c[0]) ? 'activeIt' : ''}`}></i> {c[0]}</li>
+                      }}>
+                        <i className={`${c[1]} ${choosenCategory.includes(c[0]) ? 'activeIt' : ''}`}></i> {c[0]}
+                      </li>
                     ))}
                   </div>
                   <div>
                     {cats.slice(6).map((c, idx) => (
-
                       <li key={idx} onClick={() => {
                         setChoosenCategory((prev) => {
-                          const categories = prev.split(",").filter(Boolean); // Split by commas and remove empty strings
+                          const categories = prev.split(",").filter(Boolean);
                           if (categories.includes(c[0])) {
-                            // Remove the category if it's already in the list
                             return categories.filter(category => category !== c[0]).join(",");
                           } else {
-                            // Add the category if it's not in the list
                             return [...categories, c[0]].join(",");
                           }
                         });
-
-
-                      }
-                      } >  <i className={`${c[1]} ${choosenCategory.includes(c[0]) ? 'activeIt' : ''}`}></i> {c[0]}</li>
+                      }}>
+                        <i className={`${c[1]} ${choosenCategory.includes(c[0]) ? 'activeIt' : ''}`}></i> {c[0]}
+                      </li>
                     ))}
                   </div>
                 </div>}
             </a>
           </div>
-          <div className="gp2" >
+
+          <div className="gp2">
             <a onClick={() => setShowSortOpts(!showSortOpts)} href="#"><i className='fas fa-sort'></i> Sort</a>
             {showSortOpts &&
               <div className="dropDown">
                 <li className={showPriceSlider ? 'inFocus' : ''}
                   onClick={() => setShowPriceSlider(!showPriceSlider)}>
                   <span className='opner'><i className={`fas fa-${showPriceSlider ? 'chevron-down' : 'chevron-right'}`}></i></span>
-                  Price</li>
+                  Price
+                </li>
                 {showPriceSlider &&
-                  <div style={{ width: '60%' }} >
-                    <center>
-                      ₹{priceRange[0]} - ₹{priceRange[1]}
-                    </center>
+                  <div style={{ width: '60%' }}>
+                    <center>₹{priceRange[0]} - ₹{priceRange[1]}</center>
                     <Slider
                       range
                       min={0}
@@ -185,42 +169,35 @@ export default function Products({ searchQuery, searchRes }) {
                       allowCross={false}
                       onChangeComplete={() => {
                         // console.log('worked....');
-                        setPriceMin(priceRange[0])
-                        setPriceMax(priceRange[1])
-
-
+                        setPriceMin(priceRange[0]);
+                        setPriceMax(priceRange[1]);
                       }}
                     />
-
                   </div>
                 }
                 <hr style={{ width: '80%', opacity: '0.2' }} />
                 <li className={showAvailabilitySlider ? 'inFocus' : ''}
                   onClick={() => setShowAvailabilitySlider(!showAvailabilitySlider)}>
                   <span className='opner'><i className={`fas fa-${showAvailabilitySlider ? 'chevron-down' : 'chevron-right'}`}></i></span>
-                  Availability</li>
-                {
-                  showAvailabilitySlider &&
-
-                  <div style={{ width: '60%' }}
-
-                  >
+                  Availability
+                </li>
+                {showAvailabilitySlider &&
+                  <div style={{ width: '60%' }}>
                     {availabilityRange[0]} - {availabilityRange[1]}
                     <Slider
                       range
                       min={0}
                       max={100}
                       defaultValue={availabilityRange}
-                      value={availabilityRange} // Controlled by state
-                      onChange={handleAvailabilityChange} // Updates state on interaction
+                      value={availabilityRange}
+                      onChange={handleAvailabilityChange}
                       allowCross={false}
                       onChangeComplete={() => {
-                        setMinAvailable(availabilityRange[0])
-                        setMaxAvailable(availabilityRange[1])
+                        setMinAvailable(availabilityRange[0]);
+                        setMaxAvailable(availabilityRange[1]);
                       }}
                     />
                   </div>
-
                 }
               </div>}
           </div>
