@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Navbar({ setSearchQuery, setSearchRes, sid,setSellerState }) {
+export default function Navbar({ setSearchQuery, setSearchRes, sid, setSellerState }) {
 
   const [query, setQuery] = useState('')
 
@@ -13,7 +13,6 @@ export default function Navbar({ setSearchQuery, setSearchRes, sid,setSellerStat
       return true; // Set wMsg to true
     }
   })
-
 
   setTimeout(() => {
     setWmsg(false)
@@ -34,7 +33,6 @@ export default function Navbar({ setSearchQuery, setSearchRes, sid,setSellerStat
     }
     setSearchQuery(query)
     fetchSearchData()
-    
   }
 
   function handleKeyDown(e) {
@@ -43,12 +41,11 @@ export default function Navbar({ setSearchQuery, setSearchRes, sid,setSellerStat
     }
   }
 
-  function changeTab(){
-    if(sid!==''){
+  function changeTab() {
+    if (sid !== '') {
       setSellerState("Products")
     }
   }
-
 
   const fetchSearchData = async () => {
     try {
@@ -59,13 +56,13 @@ export default function Navbar({ setSearchQuery, setSearchRes, sid,setSellerStat
         },
         body: JSON.stringify({
           productName: query,
-          sid:sid
+          sid: sid
         }),
       });
       if (res.ok) {
         const data = await res.json();
         console.log(data);
-        
+
         setSearchRes(data.products)
       }
     } catch (error) {
@@ -73,18 +70,22 @@ export default function Navbar({ setSearchQuery, setSearchRes, sid,setSellerStat
     }
   };
 
-
   return (
     <div className='navbar'>
-
       <div className='logo'>
         <h1>Global.Catalog.Registry</h1>
-        <p><i class="fa-solid fa-bag-shopping ic"></i></p>  
+        <p><i class="fa-solid fa-bag-shopping ic"></i></p>
         {/* <img height={50} width={50} src='https://cdn-icons-png.flaticon.com/128/4290/4290854.png' alt='logo' /> */}
       </div>
 
       <div className="searchBar">
-        <input type="text" placeholder="Search" onClick={changeTab} onChange={(e) => handleChange(e)} onKeyDown={(e) => handleKeyDown(e)} />
+        <input
+          type="text"
+          placeholder="Search"
+          onClick={changeTab}
+          onChange={(e) => handleChange(e)}
+          onKeyDown={(e) => handleKeyDown(e)}
+        />
         <i className='fas fa-search' onClick={handleSubmit}></i>
       </div>
 
@@ -94,10 +95,11 @@ export default function Navbar({ setSearchQuery, setSearchRes, sid,setSellerStat
         <a href='#'><i className='fas fa-user'></i> Profile</a>
       </div>
 
-
-      {sid!=='' && wMsg && <div className="welcomeMsg">
-        Login Successful ! Welcome to GCR...
-      </div>}
+      {sid !== '' && wMsg && (
+        <div className="welcomeMsg">
+          Login Successful ! Welcome to GCR...
+        </div>
+      )}
     </div>
   )
 }
