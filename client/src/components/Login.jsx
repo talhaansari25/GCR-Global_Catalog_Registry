@@ -34,7 +34,6 @@ const Login = () => {
         //save in local storage
         await localStorage.setItem("sid", data.seller._id);
         navigate('/shop');
-
       } else {
         alert('Error: ${data.message}');
       }
@@ -100,21 +99,21 @@ const Login = () => {
         <button type="submit" className="login-submit-btn">Login</button>
         <br />
         <br />
-        <div style={{display:'flex', alignItems:'center', justifyContent:'space-around'}}>
-          <hr style={{ width: '40%' , height:'1px'}} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
+          <hr style={{ width: '40%', height: '1px' }} />
           <p>&nbsp; OR &nbsp;</p>
-          <hr style={{ width: '40%', height:'1px' }} />
-        </div><br />
-        <button onClick={()=>{
-         navigate("/register")
+          <hr style={{ width: '40%', height: '1px' }} />
+        </div>
+        <br />
+        <button onClick={() => {
+          navigate("/register")
         }} className="login-submit-btn-outline">Sign Up</button>
       </form>
 
-      <button onClick={()=>{
-         navigate("/home")
-        }} className="login-submit-btn-outline">Buyer</button>
+      <button onClick={() => {
+        navigate("/home")
+      }} className="login-submit-btn-outline">Buyer</button>
     </div>
-
   );
 };
 
