@@ -18,16 +18,17 @@ export default function Crousal() {
     return () => clearInterval(interval);
   }, [crImg.length]);
 
-
   return (
     <div className='crousal'>
-      <div className="crContent" >
-        <div className="innerWindow" style={{
-          display: 'flex',
-          transition: 'transform 0.5s ease-in-out',
-          transform: `translateX(-${currentIndex * 100}%)`,
-        }}>
-
+      <div className="crContent">
+        <div
+          className="innerWindow"
+          style={{
+            display: 'flex',
+            transition: 'transform 0.5s ease-in-out',
+            transform: `translateX(-${currentIndex * 100}%)`,
+          }}
+        >
           {crImg.map((img, index) => (
             <img
               key={index}
@@ -36,7 +37,6 @@ export default function Crousal() {
               style={{ width: '100%', height: '240px', flexShrink: 0 }}
             />
           ))}
-
         </div>
       </div>
     </div>
