@@ -130,7 +130,7 @@ export default function SingleUpload({ sid, setRegular }) {
 
             if (response.ok) {
                 alert("Product added successfully!");
-                setFormData({}); // Reset form
+                setFormData({}); 
             } else {
                 alert("Failed to add product.");
             }
