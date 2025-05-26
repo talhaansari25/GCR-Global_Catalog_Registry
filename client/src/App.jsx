@@ -49,7 +49,7 @@ function App() {
         }
       },
       {
-        root: null, // Observe within the viewport
+        root: null, // Observe within viewport
         threshold: 0.1, // Trigger when a small part of the marker is visible
       }
     );
