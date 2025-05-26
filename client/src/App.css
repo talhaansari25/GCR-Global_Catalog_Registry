@@ -28,7 +28,6 @@
 body {
   width: 100%;
   height: 100vh;
-  /* background-color: var(--light2); */
   user-select: none;
   color: var(--text);
   font-family: 'Open Sans';
