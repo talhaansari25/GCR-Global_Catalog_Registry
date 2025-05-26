@@ -79,19 +79,6 @@ body {
 }
 
 
-
-/* @keyframes popupAnimation {
-  from {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-} */
-
-
 @keyframes popupAnimation {
   0% {
     transform: scale(0.5);
