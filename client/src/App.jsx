@@ -43,7 +43,7 @@ function App() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) {
-          setIsAbsolute(false); // Keep fixed
+          setIsAbsolute(false); // Keeping fixed
         } else {
           setIsAbsolute(true); // Switch to absolute when Container A's bottom edge reaches
         }
