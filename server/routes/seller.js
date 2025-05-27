@@ -13,7 +13,7 @@ import {
 } from '../controllers/seller.js';
 import multer from 'multer';
 
-// Store uploaded files in the writable /tmp directory
+// Store uploaded files in writable /tmp directory
 const upload = multer({ dest: '/tmp' });
 
 const router = express.Router();
