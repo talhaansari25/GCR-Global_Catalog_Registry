@@ -11,7 +11,7 @@ export const registerSeller = async (req, res) => {
   const { businessName, email, password, contactNumber, businessAddress, taxId } = req.body;
 
   try {
-    // Check if the email already exists
+    //  if the email already exists
     const existingSeller = await Seller.findOne({ email });
     if (existingSeller) {
       return res.status(400).json({ message: "Email already registered." });
