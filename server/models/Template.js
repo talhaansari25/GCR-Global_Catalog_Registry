@@ -25,7 +25,7 @@ const tempScheme = new mongoose.Schema(
 
 // Optional method to convert timestamps to IST
 tempScheme.methods.convertTimestampsToIST = function () {
-  const istOffset = 5.5 * 60; // IST is UTC +5:30
+  const istOffset = 5.5 * 60; // IST UTC +5:30
   if (this.createdAt) {
     this.createdAt = new Date(this.createdAt.getTime() + istOffset * 60000);
   }
