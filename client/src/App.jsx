@@ -71,7 +71,7 @@ function App() {
 
 
 
-  //====== Handling Seller State ===-=======//
+  //====== Handling Seller State ===========//
   const [sellerState, setSellerState] = useState("Profile")
   const [activeSingle, setActiveSingle] = useState(true)
 
