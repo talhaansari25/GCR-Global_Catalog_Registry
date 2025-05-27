@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
   color: { type: String, required: false },
   img: { type: String, required: false },
 
-  // Dynamic fields stored in an object that holds both price and availability
+  // Dynamic fields stored in object that holds both price and availability
   dynamicFields: {
     price: {
       type: Number,
