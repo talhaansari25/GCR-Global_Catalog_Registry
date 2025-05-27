@@ -30,7 +30,7 @@ const sellerSchema = new mongoose.Schema(
   {
     businessName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }, // Ensure password is hashed before saving
+    password: { type: String, required: true }, // Ensure password hashed before saving
     contactNumber: { type: String, required: true },
     businessAddress: { type: addressSchema, required: true },
     taxId: { type: String, required: true, unique: true },
