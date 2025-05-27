@@ -1,4 +1,4 @@
-
+// buyer js
 import express from 'express'
 import { getFilteredProducts, searchProductByName, viewProduct } from '../controllers/buyer.js'
 
