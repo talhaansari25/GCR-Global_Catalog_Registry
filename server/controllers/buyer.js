@@ -7,7 +7,7 @@ export const viewProduct = async (req, res) => {
     // Extract the product ID from the request body
     const { id } = req.body;
 
-    // Validate that the ID is provided
+    // Validate that the ID provided
     if (!id) {
       return res.status(400).json({
         message: "Product ID is required",
