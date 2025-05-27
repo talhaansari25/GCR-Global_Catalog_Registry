@@ -22,7 +22,7 @@ const buyerSchema = new mongoose.Schema(
     password: { type: String, required: true }, // Use bcrypt to hash password before saving
     phoneNumber: { type: String, required: true },
     shippingAddress: { type: addressSchema, required: true },
-    billingAddress: { type: addressSchema }, // Optional, as it may be same as shipping address
+    billingAddress: { type: addressSchema }, // Optional,  it may be same as shipping address
     orderHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }], // Store orders as an array of order objects
     wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }], // Wishlist (product references)
     cart: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }], // Cart (product references)
